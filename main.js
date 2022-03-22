@@ -7,7 +7,7 @@ var mongoDB = 'mongodb://127.0.0.1/test-db-ronald';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 
-Platillo = require('./models/platillos')
+Platillo = require('./models/platillo')
 
 app.get('/', (req, res) => {
     res.send('funciona');
@@ -38,7 +38,7 @@ app.post('/platillo', async (req, res) => {
 app.delete('/platillo/:platillo', async (req, res) => {
     await Platillo.deleteOne({ _id: req.platillo })
     res.send(platillo)
-})}
+});
 
 app.listen(port, () => {
     console.log(`test app listening on port ${port}`)
